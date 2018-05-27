@@ -55,7 +55,7 @@ def main():
             lines.append(string)
 
     lines = deque(lines)
-    while (lines):
+    while lines:
         print_odd_and_even_characters(lines.popleft())
 
 
