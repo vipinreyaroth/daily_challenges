@@ -1,11 +1,11 @@
 """
 Objective
-Today we're expanding our knowledge of Strings and combining it with what we've already learned about loops.
-Check out the Tutorial tab for learning materials and an instructional video!
+Today we're expanding our knowledge of Strings and combining it with what we've already learned
+about loops.
 
 Task
-Given a string, , of length  that is indexed from  to , print its even-indexed and odd-indexed characters as
-space-separated strings on a single line (see the Sample below for more detail).
+Given a string, , of length  that is indexed from  to , print its even-indexed and odd-indexed
+characters as space-separated strings on a single line (see the Sample below for more detail).
 
 Note:  is considered to be an even index.
 
@@ -18,26 +18,35 @@ Constraints
 
 Output Format
 
-For each String  (where ), print 's even-indexed characters, followed by a space, followed by 's odd-indexed characters.
+For each String  (where ), print 's even-indexed characters, followed by a space, followed
+by 's odd-indexed characters.
 """
 import sys
 from collections import deque
 
 
 def print_odd_and_even_characters(string):
+    """
+    This function will print the characters at odd and even positions of the input string.
+    :param string:
+    :return:
+    """
     even_index_chars = []
     odd_index_chars = []
 
-    for i, c in enumerate(string):
+    for i, char in enumerate(string):
         if not i % 2:
-            even_index_chars.append(c)
+            even_index_chars.append(char)
         if i % 2 > 0:
-            odd_index_chars.append(c)
+            odd_index_chars.append(char)
 
     print('{} {}'.format(''.join(even_index_chars), ''.join(odd_index_chars)))
 
 
 def main():
+    """
+    Main function. Program starting point.
+    """
     nlines = int(input())
 
     if nlines not in range(1, 11):
