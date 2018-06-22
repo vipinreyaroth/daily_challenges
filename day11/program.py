@@ -22,24 +22,26 @@ has to pass.
 """
 
 
-def get_max_profit(stock_prices: []):
+def get_max_profit(stock_prices: []) -> int:
+
+    if len(stock_prices) < 2:
+        raise ValueError('There should be atleast two prices to calculate profit.')
+
     min_price = stock_prices[0]
-    profit = stock_prices[1] - min_price
+    max_profit = stock_prices[1] - stock_prices[0]
 
     for i in range(1, len(stock_prices)):
         current_price = stock_prices[i]
+        potential_profit = current_price - min_price
+        max_profit = max(max_profit, potential_profit)
+        min_price = min(min_price, current_price)
 
-        if current_price - min_price > profit:
-            profit = current_price - min_price
-
-        if current_price < min_price:
-            min_price = current_price
-
-    return profit
+    return max_profit
 
 
 def main():
     stock_prices = [10, 7, 5, 8, 11, 9]
+    #stock_prices = [10, 7, 5, 4, 3, 1]
 
     profit = get_max_profit(stock_prices)
 
