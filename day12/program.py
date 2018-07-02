@@ -46,7 +46,7 @@ def main():
     outages = get_outage_data(suburb, data)
 
     print('-'*20)
-    print(f'Outages in {suburb}:')
+    print('Outages in {}: {}'.format(suburb.title(), 'None' if not len(outages) else ''))
     print('-'*20)
 
     for outage in outages:
